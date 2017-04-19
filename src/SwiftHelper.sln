@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmark", "Benchmark\Benc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{CF32A6C9-B16B-4AEA-8385-E4D91116FFC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSamples", "SimpleSamples\SimpleSamples.csproj", "{180C4966-0CC7-4E8F-B2CC-A02B83CB0BE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{CF32A6C9-B16B-4AEA-8385-E4D91116FFC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF32A6C9-B16B-4AEA-8385-E4D91116FFC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF32A6C9-B16B-4AEA-8385-E4D91116FFC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{180C4966-0CC7-4E8F-B2CC-A02B83CB0BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{180C4966-0CC7-4E8F-B2CC-A02B83CB0BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{180C4966-0CC7-4E8F-B2CC-A02B83CB0BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{180C4966-0CC7-4E8F-B2CC-A02B83CB0BE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +52,6 @@ Global
 		{5FD3D1AC-99C9-4F5C-A4F3-D91ED9B32E96} = {AB6A8130-CB13-4D85-B9F2-A705E1764D8C}
 		{57549B05-44C2-45F4-AD64-66C0AF43F705} = {E6896DF2-F71E-4F1D-9DB4-80B026B4BA0E}
 		{CF32A6C9-B16B-4AEA-8385-E4D91116FFC2} = {E6896DF2-F71E-4F1D-9DB4-80B026B4BA0E}
+		{180C4966-0CC7-4E8F-B2CC-A02B83CB0BE2} = {92EFC7C1-203E-4A30-8EF4-A07CC34E6120}
 	EndGlobalSection
 EndGlobal
