@@ -8,7 +8,7 @@
     <PackageLicenseUrl>https://github.com/mkarpusiewicz/SwiftHelper/blob/master/README.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/mkarpusiewicz/SwiftHelper</PackageProjectUrl>
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\SwiftHelper.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>SwiftHelper.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
