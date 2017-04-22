@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace SwiftHelper.Experimental
 {
-    internal static class ExperimentalExtensions
+    public static class ExperimentalExtensions
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNullOrEmptyWithAny<T>(this IEnumerable<T> source)
@@ -34,6 +34,23 @@ namespace SwiftHelper.Experimental
             var set = new Set<TSelector>();
 
             return source.Where(s => set.Add(selector(s)));
+        }
+
+        //todo
+        public static IEnumerable<TSource> DistinctByHash<TSource, TSelector>(this IEnumerable<TSource> source, Func<TSource, TSelector> selector)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+            if (selector == null)
+            {
+                throw new ArgumentNullException(nameof(selector));
+            }
+
+            // use dictionary hash implementation with equality comparer
+
+            return null;
         }
 
         public static IEnumerable<TSource> DistinctBySetForEach<TSource, TSelector>(this IEnumerable<TSource> source, Func<TSource, TSelector> selector)
