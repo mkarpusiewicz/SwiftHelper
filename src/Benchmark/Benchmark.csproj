@@ -123,6 +123,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MinMaxExtendedTests.cs" />
+    <Compile Include="MinMaxCustomTests.cs" />
+    <Compile Include="MinMaxTests.cs" />
     <Compile Include="DistinctTests.cs" />
     <Compile Include="ExtensionTests.cs" />
     <Compile Include="Program.cs" />

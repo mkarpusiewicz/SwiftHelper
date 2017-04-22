@@ -10,10 +10,11 @@ namespace Benchmark
         {
             var config = ManualConfig.Create(DefaultConfig.Instance);
 
-            BenchmarkRunner.Run<DistinctTests>(config);
-            Console.ReadKey();
+            //BenchmarkRunner.Run<DistinctTests>(config);
+            //BenchmarkRunner.Run<ExtensionTests>(config);
+            //BenchmarkRunner.Run<MinMaxTests>(config);
+            BenchmarkRunner.Run<MinMaxExtendedTests>(config);
 
-            BenchmarkRunner.Run<ExtensionTests>(config);
             Console.ReadKey();
         }
     }
