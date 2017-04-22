@@ -1,2 +1,2 @@
-# SwiftHelpers
-C# helpers for commonly used operations on collections
+# SwiftHelper
+C# helpers for commonly used operations on collections.
