@@ -32,36 +32,54 @@ namespace SwiftHelper
 
         public static SimpleCompareResult<TElement> Compare<TElement>(ICollection<TElement> oldEnumerable, ICollection<TElement> newEnumerable)
         {
+            if (oldEnumerable == null)
+            {
+                throw new ArgumentNullException(nameof(oldEnumerable));
+            }
+            if (newEnumerable == null)
+            {
+                throw new ArgumentNullException(nameof(newEnumerable));
+            }
+
             var added = newEnumerable.Except(oldEnumerable).ToArray();
             var removed = oldEnumerable.Except(newEnumerable).ToArray();
 
             return new SimpleCompareResult<TElement>(added, removed);
         }
 
-        /// <summary>
-        ///     Return elements both satysfing and not the given predicate
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
-        public static PartitionResult<TSource> Partition<TSource>(this ICollection<TSource> source, Func<TSource, bool> predicate)
-        {
-            return new PartitionResult<TSource>(null, null);
-        }
+        ///// <summary>
+        /////     Return elements both satysfing and not the given predicate
+        ///// </summary>
+        ///// <typeparam name="TSource"></typeparam>
+        ///// <param name="source"></param>
+        ///// <param name="predicate"></param>
+        ///// <returns></returns>
+        //public static PartitionResult<TSource> Partition<TSource>(this ICollection<TSource> source, Func<TSource, bool> predicate)
+        //{
+        //    return new PartitionResult<TSource>(null, null);
+        //}
 
-        public static IEnumerable<TSource> MinBy<TSource, TKey>(this ICollection<TSource> source, Func<TSource, TKey> keySelector)
-        {
-            return null;
-        }
+        //public static IEnumerable<TSource> MinBy<TSource, TKey>(this ICollection<TSource> source, Func<TSource, TKey> keySelector)
+        //{
+        //    return null;
+        //}
 
-        public static IEnumerable<TSource> MaxBy<TSource, TKey>(this ICollection<TSource> source, Func<TSource, TKey> keySelector)
-        {
-            return null;
-        }
+        //public static IEnumerable<TSource> MaxBy<TSource, TKey>(this ICollection<TSource> source, Func<TSource, TKey> keySelector)
+        //{
+        //    return null;
+        //}
 
         public static void ForEach<TSource>(this ICollection<TSource> source, Action<TSource> action)
         {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+            if (action == null)
+            {
+                throw new ArgumentNullException(nameof(action));
+            }
+
             foreach (var element in source)
             {
                 action(element);
@@ -70,11 +88,16 @@ namespace SwiftHelper
 
         public static IEnumerable<TSource> Generate<TSource>(this TSource initialValue, Func<TSource, TSource> generationAction, Func<TSource, bool> whileCondition = null)
         {
+            if (generationAction == null)
+            {
+                throw new ArgumentNullException(nameof(generationAction));
+            }
+
             yield return initialValue;
 
             if (whileCondition == null)
             {
-                whileCondition = source => true;
+                whileCondition = source => true; //infinite enumeration
             }
 
             var currentValue = initialValue;
