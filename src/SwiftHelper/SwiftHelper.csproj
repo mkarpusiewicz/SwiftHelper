@@ -9,7 +9,7 @@
     <PackageProjectUrl>https://github.com/mkarpusiewicz/SwiftHelper</PackageProjectUrl>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>SwiftHelper.snk</AssemblyOriginatorKeyFile>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/mkarpusiewicz/SwiftHelper</RepositoryUrl>
   </PropertyGroup>
