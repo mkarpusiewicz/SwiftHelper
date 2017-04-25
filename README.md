@@ -74,7 +74,7 @@ public void GenerateRangeOfNumbers()
 ```
 Or a more complicated example of a fibonacci number generator with new C# 7 tuples:
 ```csharp
-public void FibonacciNthTest()
+public void FibonacciGenerator()
 {
     var generator = (prev: 0UL, state: 1UL).Generate(f => (f.state, f.prev + f.state)).Select(f => f.state);
     var result = generator.ElementAt(93 - 1); //93th fibonacci number
