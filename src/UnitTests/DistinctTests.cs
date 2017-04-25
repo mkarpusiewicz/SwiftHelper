@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
 using SimpleSamples;
 using SwiftHelper;
+using Xunit;
 
 namespace UnitTests
 {
-    [TestFixture]
     public class DistinctTests
     {
         private static readonly List<SimpleUser> Users = new List<SimpleUser>
@@ -17,15 +16,15 @@ namespace UnitTests
             new SimpleUser {Name = "Kate", Gender = Gender.Female, Joined = new DateTime(2017, 3, 1), Score = 15, Age = 19}
         };
 
-        [Test]
+        [Fact]
         public void DistinctByTest()
         {
             var result = Users.DistinctBy(u => u.Gender).ToArray();
 
-            Assert.AreEqual(2, result.Length);
+            Assert.Equal(2, result.Length);
 
-            Assert.AreEqual("John", result[0].Name);
-            Assert.AreEqual("Amy", result[1].Name);
+            Assert.Equal("John", result[0].Name);
+            Assert.Equal("Amy", result[1].Name);
         }
     }
 }

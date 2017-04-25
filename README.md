@@ -49,9 +49,9 @@ public void SomeMethod()
 {
     var result = Users.DistinctBy(u => u.Gender).ToArray();
     
-    Assert.AreEqual(2, result.Length);
-    Assert.AreEqual("John", result[0].Name);
-    Assert.AreEqual("Amy", result[1].Name);
+    Assert.Equal(2, result.Length);
+    Assert.Equal("John", result[0].Name);
+    Assert.Equal("Amy", result[1].Name);
 }
 ```
 
@@ -69,7 +69,7 @@ public void GenerateRangeOfNumbers()
     var generator = 1.Generate(i => i + 1);
     var result = string.Join(",", generator.Skip(5).Take(3));
 
-    Assert.AreEqual("6,7,8", result);
+    Assert.Equal("6,7,8", result);
 }
 ```
 Or a more complicated example of a fibonacci number generator with new C# 7 tuples:
@@ -79,7 +79,7 @@ public void FibonacciGenerator()
     var generator = (prev: 0UL, state: 1UL).Generate(f => (f.state, f.prev + f.state)).Select(f => f.state);
     var result = generator.ElementAt(93 - 1); //93th fibonacci number
 
-    Assert.AreEqual(12200160415121876738UL, result);
+    Assert.Equal(12200160415121876738UL, result);
 }
 ```
 
