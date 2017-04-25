@@ -4,7 +4,7 @@
     <TargetFramework>netstandard1.3</TargetFramework>
     <Authors>Maciej Karpusiewicz</Authors>
     <Company>Maciej Karpusiewicz</Company>
-    <Description>C# helpers for commonly used operations on collections</Description>
+    <Description>SwiftHelper is a simple C# library with extension methods for commonly used operations on collections with optimization in mind.</Description>
     <PackageLicenseUrl>https://github.com/mkarpusiewicz/SwiftHelper/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/mkarpusiewicz/SwiftHelper</PackageProjectUrl>
     <SignAssembly>True</SignAssembly>
@@ -12,6 +12,8 @@
     <Version>0.1.2-alpha</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/mkarpusiewicz/SwiftHelper</RepositoryUrl>
+    <PackageTags>helpers extensions collections</PackageTags>
+    <Copyright>Copyright (c) 2017 Maciej Karpusiewicz and Contributors</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
