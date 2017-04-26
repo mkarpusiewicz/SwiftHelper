@@ -23,7 +23,7 @@ PM> Install-Package SwiftHelper -Pre
 ### Sample code
 Below you can find sample usages of extension methods.
 #### IsNullOrEmpty
-##### IEnumerable\<TSource\>.IsNullOrEmpty()
+##### bool IEnumerable\<TSource\>.IsNullOrEmpty()
 Checks if source is null or empty.
 ```csharp
 public void DoSomething(IEnumerable<string> source)
@@ -37,14 +37,14 @@ public void DoSomething(IEnumerable<string> source)
 ```
 
 #### ForEach
-##### ICollection\<TSource\>.ForEach(Action\<TSource\> action)
+##### void ICollection\<TSource\>.ForEach(Action\<TSource\> action)
 Execute an action for every element in a collection.
 ```csharp
 //todo: sample code
 ```
 
 #### DistinctBy
-##### IEnumerable\<TSource\>.DistinctBy(Func\<TSource, TSelector\> selector)
+##### IEnumerable\<TSource\> IEnumerable\<TSource\>.DistinctBy(Func\<TSource, TSelector\> selector)
 Filter distinct objects in a collection using a specific field as a distinct parameter using default equals/hashcode implementation.
 ```csharp
 private static readonly List<SimpleUser> Users = new List<SimpleUser>
@@ -65,14 +65,20 @@ public void SomeMethod()
 ```
 
 #### Compare
-##### ICollection\<TSource\>.Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)
+##### SimpleCompareResult\<TElement\> ICollection\<TSource\>.Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)
 Compare two lists using default comparer and return result with added and removed elements collection
 ```csharp
+public class SimpleCompareResult<T>
+{
+   public IReadOnlyCollection<T> Added { get; }
+   public IReadOnlyCollection<T> Removed { get; }
+}
+
 //todo: sample code
 ```
 
 #### Generate
-##### TSource.Generate(Func\<TSource, TSource\> generationAction, Func\<TSource, bool\> whileCondition = null)
+##### IEnumerable\<TSource\> TSource.Generate(Func\<TSource, TSource\> generationAction, Func\<TSource, bool\> whileCondition = null)
 Create an enumerable from a starting object, apply generation action after every element to the starting object until while condition is not met. Can create infinite series generator.
 ```csharp
 public void GenerateRangeOfNumbers()
