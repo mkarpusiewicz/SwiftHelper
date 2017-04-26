@@ -65,7 +65,7 @@ public void SomeMethod()
 ```
 
 ### Compare
-#### `SimpleCompareResult\<TElement\> ICollection\<TSource\>.Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)`
+#### SimpleCompareResult\<TElement\> ICollection\<TSource\>.Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)
 Compare two lists using default comparer and return result with added and removed elements collection
 ```csharp
 public class SimpleCompareResult<T>
@@ -78,7 +78,7 @@ public class SimpleCompareResult<T>
 ```
 
 ### Generate
-#### `IEnumerable\<TSource\> TSource.Generate(Func\<TSource, TSource\> generationAction, Func\<TSource, bool\> whileCondition = null)`
+#### IEnumerable\<TSource\> TSource.Generate(Func\<TSource, TSource\> generationAction, Func\<TSource, bool\> whileCondition = null)
 Create an enumerable from a starting object, apply generation action after every element to the starting object until while condition is not met. Can create infinite series generator.
 ```csharp
 public void GenerateRangeOfNumbers()
