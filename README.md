@@ -3,7 +3,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/43g27kognqaqmbgr?svg=true)](https://ci.appveyor.com/project/mkarpusiewicz/swifthelper)
 [![NuGet](https://img.shields.io/nuget/v/SwiftHelper.svg)](https://www.nuget.org/packages/SwiftHelper/)
 
-### What is SwiftHelper?
+## What is SwiftHelper?
 SwiftHelper is a simple C# library with extension methods for commonly used operations on collections with optimization in mind.
 
 - [IsNullOrEmpty](#isnullorempty)
@@ -12,7 +12,7 @@ SwiftHelper is a simple C# library with extension methods for commonly used oper
 - [Compare](#compare)
 - [Generate](#generate)
 
-### Where can I get it?
+## Where can I get it?
 
 Nuget, install alpha pre-release [SwiftHelper](https://www.nuget.org/packages/SwiftHelper/) from the package manager console:
 
@@ -20,10 +20,10 @@ Nuget, install alpha pre-release [SwiftHelper](https://www.nuget.org/packages/Sw
 PM> Install-Package SwiftHelper -Pre
 ```
 
-### Sample code
+## Sample code
 Below you can find sample usages of extension methods.
-#### IsNullOrEmpty
-##### bool IEnumerable\<TSource\>.IsNullOrEmpty()
+### IsNullOrEmpty
+#### bool IEnumerable\<TSource\>.IsNullOrEmpty()
 Checks if source is null or empty.
 ```csharp
 public void DoSomething(IEnumerable<string> source)
@@ -36,15 +36,15 @@ public void DoSomething(IEnumerable<string> source)
 }
 ```
 
-#### ForEach
-##### void ICollection\<TSource\>.ForEach(Action\<TSource\> action)
+### ForEach
+#### void ICollection\<TSource\>.ForEach(Action\<TSource\> action)
 Execute an action for every element in a collection.
 ```csharp
 //todo: sample code
 ```
 
-#### DistinctBy
-##### IEnumerable\<TSource\> IEnumerable\<TSource\>.DistinctBy(Func\<TSource, TSelector\> selector)
+### DistinctBy
+#### IEnumerable\<TSource\> IEnumerable\<TSource\>.DistinctBy(Func\<TSource, TSelector\> selector)
 Filter distinct objects in a collection using a specific field as a distinct parameter using default equals/hashcode implementation.
 ```csharp
 private static readonly List<SimpleUser> Users = new List<SimpleUser>
@@ -64,8 +64,8 @@ public void SomeMethod()
 }
 ```
 
-#### Compare
-##### SimpleCompareResult\<TElement\> ICollection\<TSource\>.Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)
+### Compare
+#### `SimpleCompareResult\<TElement\> ICollection\<TSource\>.Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)`
 Compare two lists using default comparer and return result with added and removed elements collection
 ```csharp
 public class SimpleCompareResult<T>
@@ -77,8 +77,8 @@ public class SimpleCompareResult<T>
 //todo: sample code
 ```
 
-#### Generate
-##### IEnumerable\<TSource\> TSource.Generate(Func\<TSource, TSource\> generationAction, Func\<TSource, bool\> whileCondition = null)
+### Generate
+#### `IEnumerable\<TSource\> TSource.Generate(Func\<TSource, TSource\> generationAction, Func\<TSource, bool\> whileCondition = null)`
 Create an enumerable from a starting object, apply generation action after every element to the starting object until while condition is not met. Can create infinite series generator.
 ```csharp
 public void GenerateRangeOfNumbers()
@@ -100,11 +100,11 @@ public void FibonacciGenerator()
 }
 ```
 
-### Do you have an issue or idea?
+## Do you have an issue or idea?
 
 If you have any problems please check the issues and fill one if no resolution is found.
 Of course if you have an idea for an improvement or a new extension please don't hesitate to fill an issue or submit a pull request.
 
-### License
+## License
 
 SwiftHelper is Copyright &copy; 2017 Maciej Karpusiewicz and other contributors under the [MIT license](LICENSE).
