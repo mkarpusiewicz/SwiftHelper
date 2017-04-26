@@ -6,6 +6,12 @@
 ### What is SwiftHelper?
 SwiftHelper is a simple C# library with extension methods for commonly used operations on collections with optimization in mind.
 
+- [IsNullOrEmpty](#isnullorempty)
+- [ForEach](#foreach)
+- [DistinctBy](#distinctby)
+- [Compare](#compare)
+- [Generate](#generate)
+
 ### Where can I get it?
 
 Nuget, install alpha pre-release [SwiftHelper](https://www.nuget.org/packages/SwiftHelper/) from the package manager console:
@@ -16,7 +22,8 @@ PM> Install-Package SwiftHelper -Pre
 
 ### Sample code
 Below you can find sample usages of extension methods.
-#### IEnumerable\<TSource\>.IsNullOrEmpty()
+#### IsNullOrEmpty
+##### IEnumerable\<TSource\>.IsNullOrEmpty()
 Checks if source is null or empty.
 ```csharp
 public void DoSomething(IEnumerable<string> source)
@@ -29,13 +36,15 @@ public void DoSomething(IEnumerable<string> source)
 }
 ```
 
-#### ICollection\<TSource\>.ForEach(Action\<TSource\> action)
+#### ForEach
+##### ICollection\<TSource\>.ForEach(Action\<TSource\> action)
 Execute an action for every element in a collection.
 ```csharp
 //todo: sample code
 ```
 
-#### IEnumerable\<TSource\>.DistinctBy(Func\<TSource, TSelector\> selector)
+#### DistinctBy
+##### IEnumerable\<TSource\>.DistinctBy(Func\<TSource, TSelector\> selector)
 Filter distinct objects in a collection using a specific field as a distinct parameter using default equals/hashcode implementation.
 ```csharp
 private static readonly List<SimpleUser> Users = new List<SimpleUser>
@@ -55,13 +64,15 @@ public void SomeMethod()
 }
 ```
 
-#### ICollection\<TSource\>.Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)
+#### Compare
+##### ICollection\<TSource\>.Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)
 Compare two lists using default comparer and return result with added and removed elements collection
 ```csharp
 //todo: sample code
 ```
 
-#### TSource.Generate(Func\<TSource, TSource\> generationAction, Func\<TSource, bool\> whileCondition = null)
+#### Generate
+##### TSource.Generate(Func\<TSource, TSource\> generationAction, Func\<TSource, bool\> whileCondition = null)
 Create an enumerable from a starting object, apply generation action after every element to the starting object until while condition is not met. Can create infinite series generator.
 ```csharp
 public void GenerateRangeOfNumbers()
