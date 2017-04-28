@@ -9,6 +9,7 @@ namespace SimpleSamples
         public int Age { get; set; }
         public DateTime Joined { get; set; }
         public decimal Score { get; set; }
+        public Rating Rating { get; set; }
 
         public bool Equals(SimpleUser other)
         {
@@ -20,13 +21,17 @@ namespace SimpleSamples
             {
                 return true;
             }
-            return Gender == other.Gender && string.Equals(Name, other.Name, StringComparison.InvariantCultureIgnoreCase) && Age == other.Age && Joined.Equals(other.Joined) &&
-                   Score == other.Score;
+            return Gender == other.Gender
+                   && string.Equals(Name, other.Name, StringComparison.InvariantCultureIgnoreCase)
+                   && Age == other.Age
+                   && Joined.Equals(other.Joined)
+                   && Score == other.Score
+                   && Rating == other.Rating;
         }
 
         public override string ToString()
         {
-            return $"{Name} - {Gender}; Age: {Age}; Joined: {Joined}; Score: {Score}";
+            return $"{Name} - {Gender}; Age: {Age}; Joined: {Joined}; Score: {Score}; Rating: {Rating.Value}";
         }
 
         public override bool Equals(object obj)
@@ -55,6 +60,7 @@ namespace SimpleSamples
                 hashCode = (hashCode * 397) ^ Age;
                 hashCode = (hashCode * 397) ^ Joined.GetHashCode();
                 hashCode = (hashCode * 397) ^ Score.GetHashCode();
+                hashCode = (hashCode * 397) ^ Rating.GetHashCode();
                 return hashCode;
             }
         }
