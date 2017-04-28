@@ -8,12 +8,11 @@ namespace SwiftHelper
     public static partial class Extensions
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool IsNullOrEmpty<T>(this IEnumerable<T> source)
+        public static bool IsNullOrEmpty<TSource>(this IEnumerable<TSource> source)
         {
             return source == null || source.GetEnumerator().MoveNext() == false;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEnumerable<TSource> DistinctBy<TSource, TSelector>(this IEnumerable<TSource> source, Func<TSource, TSelector> selector)
         {
             if (source == null)

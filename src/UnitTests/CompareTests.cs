@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using NUnit.Framework;
 using SimpleSamples;
+using Xunit;
 
 namespace UnitTests
 {
-    [TestFixture]
     public class CompareTests
     {
         private static readonly List<SimpleUser> OldUsers = new List<SimpleUser>
@@ -22,7 +21,7 @@ namespace UnitTests
             new SimpleUser {Name = "Kate", Gender = Gender.Female, Joined = new DateTime(2017, 3, 1), Score = 15, Age = 19}
         };
 
-        [Test]
+        [Fact]
         public void CompareUsersTest()
         {
         }
