@@ -51,6 +51,7 @@ namespace SwiftHelper.Experimental
             return minElements.Take(elementsCount).ToArray();
         }
 
+        //fastest for value types
         public static ICollection<TSource> MinBy_ComparerWithArrayAndCopy<TSource, TSelector>(this ICollection<TSource> source, Func<TSource, TSelector> selector)
         {
             IComparer<TSelector> comparer = Comparer<TSelector>.Default;
@@ -93,6 +94,7 @@ namespace SwiftHelper.Experimental
             return result;
         }
 
+        //fastest for reference types, not much slower from array copy for value types
         public static ICollection<TSource> MinBy_ComparerWithList<TSource, TSelector>(this ICollection<TSource> source, Func<TSource, TSelector> selector)
         {
             IComparer<TSelector> comparer = Comparer<TSelector>.Default;
