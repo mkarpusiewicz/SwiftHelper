@@ -2,7 +2,7 @@
 
 namespace SimpleSamples
 {
-    public class Rating : IEquatable<Rating>, IComparable<Rating>
+    public class Rating : IEquatable<Rating>, IComparable<Rating>, IComparable
     {
         public Rating(int value)
         {
@@ -57,6 +57,11 @@ namespace SimpleSamples
         public override int GetHashCode()
         {
             return Value;
+        }
+
+        public int CompareTo(object obj)
+        {
+            return CompareTo(obj as Rating);
         }
 
         public static bool operator ==(Rating left, Rating right)

@@ -5,6 +5,7 @@ using Xunit;
 
 namespace UnitTests
 {
+    [Trait("Category", "Production")]
     public class GeneratorTests
     {
         [Fact]

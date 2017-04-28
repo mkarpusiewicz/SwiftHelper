@@ -7,6 +7,7 @@ using Xunit;
 
 namespace UnitTests
 {
+    [Trait("Category", "Production")]
     public class DistinctTests
     {
         private static readonly List<SimpleUser> Users = new List<SimpleUser>
