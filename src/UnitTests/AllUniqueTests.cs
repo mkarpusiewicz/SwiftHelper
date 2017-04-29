@@ -11,7 +11,9 @@ namespace UnitTests
         [Fact]
         public void AllUniqueByFalse()
         {
-            var data = Enumerable.Range(1, 100).Concat(new[] {50, 1, 100}).Select(i => new SimpleUser {Name = $"Name{i}", Age = i});
+            var data = Enumerable.Range(1, 100)
+                .Concat(new[] {50, 1, 100})
+                .Select(i => new SimpleUser {Name = $"Name{i}", Age = i});
 
             var result = data.AllUniqueBy(u => u.Age);
 
@@ -21,7 +23,8 @@ namespace UnitTests
         [Fact]
         public void AllUniqueByTrue()
         {
-            var data = Enumerable.Range(1, 100).Select(i => new SimpleUser {Name = $"Name{i}", Age = i});
+            var data = Enumerable.Range(1, 100)
+                .Select(i => new SimpleUser {Name = $"Name{i}", Age = i});
 
             var result = data.AllUniqueBy(u => u.Age);
 
@@ -31,7 +34,8 @@ namespace UnitTests
         [Fact]
         public void AllUniqueFalse()
         {
-            var data = Enumerable.Range(1, 100).Concat(new[] {50, 1, 100});
+            var data = Enumerable.Range(1, 100)
+                .Concat(new[] {50, 1, 100});
 
             var result = data.AllUnique();
 
