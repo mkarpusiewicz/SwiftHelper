@@ -11,6 +11,7 @@ SwiftHelper is a simple C# library with extension methods for commonly used oper
 - [DistinctBy](#distinctby)
 - [MinBy / MaxBy](#minby--maxby)
 - [Compare](#compare)
+- [Partition](#partition)
 - [Generate](#generate)
 
 ## Where can I get it?
@@ -89,7 +90,7 @@ public void SomeMethod()
 ```
 
 ### Compare
-#### SimpleCompareResult\<TElement\> ICollection\<TSource\>.Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)
+#### SimpleCompareResult\<TElement\> Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)
 Compare two lists using default comparer and return result with added and removed elements collection
 ```csharp
 public class SimpleCompareResult<T>
@@ -99,6 +100,41 @@ public class SimpleCompareResult<T>
 }
 
 //todo: sample code
+```
+
+### Partition
+#### PartitionResult\<TSource\> ICollection\<TSource\>.Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)
+Return elements both satysfing and not given predicate
+```csharp
+public class PartitionResult<T>
+{
+   public IReadOnlyCollection<T> True { get; }
+   public IReadOnlyCollection<T> False { get; }
+}
+
+private static readonly List<SimpleUser> Users = new List<SimpleUser>
+{
+    new SimpleUser {Name = "John", Gender = Gender.Male, Age = 27},
+    new SimpleUser {Name = "Amy", Gender = Gender.Female, Age = 19},
+    new SimpleUser {Name = "Frank", Gender = Gender.Male, Age = 21},
+    new SimpleUser {Name = "Kate", Gender = Gender.Female, Age = 19}
+};
+
+public void SomeMethod()
+{
+    var result = Users.Partition(u => u.Age > 20);
+    
+      Assert.Equal(2, result.True.Count);
+      Assert.Equal(2, result.False.Count);
+
+      var namesTrue = result.True.Select(s => s.Name).ToArray();
+      var namesFalse = result.False.Select(s => s.Name).ToArray();
+
+      Assert.Contains("John", namesTrue);
+      Assert.Contains("Frank", namesTrue);
+      Assert.Contains("Kate", namesFalse);
+      Assert.Contains("Amy", namesFalse);
+}
 ```
 
 ### Generate
