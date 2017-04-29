@@ -8,6 +8,7 @@ SwiftHelper is a simple C# library with extension methods for commonly used oper
 
 - [IsNullOrEmpty](#isnullorempty)
 - [ForEach](#foreach)
+- [AllUnique / AllUniqueBy](#allunique--alluniqueby)
 - [DistinctBy](#distinctby)
 - [MinBy / MaxBy](#minby--maxby)
 - [Compare](#compare)
@@ -43,6 +44,32 @@ public void DoSomething(IEnumerable<string> source)
 Execute an action for every element in a collection.
 ```csharp
 //todo: sample code
+```
+
+### AllUnique / AllUniqueBy
+#### bool IEnumerable\<TSource\>.AllUnique()
+#### bool IEnumerable\<TSource\>.AllUniqueBy(Func\<TSource, TSelector\> selector)
+Checks if all elements are unique using default equals/hashcode implementation oj the object itself of by a parameter.
+```csharp
+public void AllUniqueTrue()
+{
+   var data = Enumerable.Range(1, 100);
+
+   var result = data.AllUnique();
+
+   Assert.True(result);
+}
+
+public void AllUniqueByFalse()
+{
+   var data = Enumerable.Range(1, 100)
+       .Concat(new[] {50, 1, 100})
+       .Select(i => new SimpleUser {Name = $"Name{i}", Age = i});
+
+   var result = data.AllUniqueBy(u => u.Age);
+
+   Assert.False(result);
+}
 ```
 
 ### DistinctBy
@@ -91,8 +118,8 @@ public void SomeMethod()
 
 ### Compare
 #### SimpleCompareResult\<TElement\> Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)
-Compare two lists using default comparer and return result with added and removed elements collection
-```csharp
+Compare two lists using default comparer and return result with added and removed elements collection.
+```csharp.
 public class SimpleCompareResult<T>
 {
    public IReadOnlyCollection<T> Added { get; }
@@ -104,7 +131,7 @@ public class SimpleCompareResult<T>
 
 ### Partition
 #### PartitionResult\<TSource\> ICollection\<TSource\>.Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)
-Return elements both satysfing and not given predicate
+Return elements both satysfing and not given predicate.
 ```csharp
 public class PartitionResult<T>
 {
