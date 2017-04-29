@@ -13,6 +13,50 @@ namespace SwiftHelper
             return source == null || source.GetEnumerator().MoveNext() == false;
         }
 
+        public static bool AllUnique<TSource>(this IEnumerable<TSource> source)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
+            var set = new HashSet<TSource>();
+
+            foreach (var element in source)
+            {
+                if (!set.Add(element))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool AllUniqueBy<TSource, TSelector>(this IEnumerable<TSource> source, Func<TSource, TSelector> selector)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+            if (selector == null)
+            {
+                throw new ArgumentNullException(nameof(selector));
+            }
+
+            var set = new HashSet<TSelector>();
+
+            foreach (var element in source)
+            {
+                if (!set.Add(selector(element)))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public static IEnumerable<TSource> DistinctBy<TSource, TSelector>(this IEnumerable<TSource> source, Func<TSource, TSelector> selector)
         {
             if (source == null)
