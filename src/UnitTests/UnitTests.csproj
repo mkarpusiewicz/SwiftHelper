@@ -74,6 +74,7 @@
     <Compile Include="Experimental\MinByMaxByExperimentalTests.cs" />
     <Compile Include="GeneratorTests.cs" />
     <Compile Include="MinByMaxByTests.cs" />
+    <Compile Include="PartitionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

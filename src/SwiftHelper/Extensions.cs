@@ -53,10 +53,34 @@ namespace SwiftHelper
         ///// <param name="source"></param>
         ///// <param name="predicate"></param>
         ///// <returns></returns>
-        //public static PartitionResult<TSource> Partition<TSource>(this ICollection<TSource> source, Func<TSource, bool> predicate)
-        //{
-        //    return new PartitionResult<TSource>(null, null);
-        //}
+        public static PartitionResult<TSource> Partition<TSource>(this ICollection<TSource> source, Func<TSource, bool> predicate)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+
+            var trueList = new List<TSource>();
+            var falseList = new List<TSource>();
+
+            foreach (var element in source)
+            {
+                if (predicate(element))
+                {
+                    trueList.Add(element);
+                }
+                else
+                {
+                    falseList.Add(element);
+                }
+            }
+
+            return new PartitionResult<TSource>(trueList, falseList);
+        }
 
         public static ICollection<TSource> MinBy<TSource, TSelector>(this ICollection<TSource> source, Func<TSource, TSelector> selector)
         {
