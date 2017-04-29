@@ -9,7 +9,7 @@ SwiftHelper is a simple C# library with extension methods for commonly used oper
 - [IsNullOrEmpty](#isnullorempty)
 - [ForEach](#foreach)
 - [DistinctBy](#distinctby)
-- [MinBy / MaxBy](#minbymaxby)
+- [MinBy / MaxBy](#minby--maxby)
 - [Compare](#compare)
 - [Generate](#generate)
 
