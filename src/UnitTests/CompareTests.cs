@@ -5,6 +5,7 @@ using Xunit;
 
 namespace UnitTests
 {
+    [Trait("Category", "Production")]
     public class CompareTests
     {
         private static readonly List<SimpleUser> OldUsers = new List<SimpleUser>

@@ -9,6 +9,7 @@ SwiftHelper is a simple C# library with extension methods for commonly used oper
 - [IsNullOrEmpty](#isnullorempty)
 - [ForEach](#foreach)
 - [DistinctBy](#distinctby)
+- [MinBy / MaxBy](#minby--maxby)
 - [Compare](#compare)
 - [Generate](#generate)
 
@@ -61,6 +62,29 @@ public void SomeMethod()
     Assert.Equal(2, result.Length);
     Assert.Equal("John", result[0].Name);
     Assert.Equal("Amy", result[1].Name);
+}
+```
+
+### MinBy / MaxBy
+#### ICollection\<TSource\> MinBy\<TSource, TSelector\>(this ICollection\<TSource\> source, Func\<TSource, TSelector\> selector)
+#### ICollection\<TSource\> MaxBy\<TSource, TSelector\>(this ICollection\<TSource\> source, Func\<TSource, TSelector\> selector)
+Gets min or max objects from collection using a specific field as a selector using default comparer or IComparer implementation.
+```csharp
+private static readonly List<SimpleUser> Users = new List<SimpleUser>
+{
+    new SimpleUser {Name = "John", Gender = Gender.Male, Age = 27},
+    new SimpleUser {Name = "Amy", Gender = Gender.Female, Age = 19},
+    new SimpleUser {Name = "Frank", Gender = Gender.Male, Age = 21},
+    new SimpleUser {Name = "Kate", Gender = Gender.Female, Age = 19}
+};
+
+public void SomeMethod()
+{
+    var result = Users.MinBy(u => u.Age).ToArray();
+    
+    Assert.Equal(2, result.Length);
+    Assert.Equal("Amy", result[0].Name);
+    Assert.Equal("Kate", result[1].Name);
 }
 ```
 

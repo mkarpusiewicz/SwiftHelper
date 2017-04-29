@@ -69,7 +69,10 @@
   <ItemGroup>
     <Compile Include="CompareTests.cs" />
     <Compile Include="DistinctTests.cs" />
+    <Compile Include="Extensions\ActionWrapper.cs" />
+    <Compile Include="Experimental\MinByMaxByExperimentalTests.cs" />
     <Compile Include="GeneratorTests.cs" />
+    <Compile Include="MinByMaxByTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +83,10 @@
     <ProjectReference Include="..\SimpleSamples\SimpleSamples.csproj">
       <Project>{180c4966-0cc7-4e8f-b2cc-a02b83cb0be2}</Project>
       <Name>SimpleSamples</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SwiftHelper.Experimental\SwiftHelper.Experimental.csproj">
+      <Project>{3b9eb0ce-15fc-473c-864f-7b2f6bebf10d}</Project>
+      <Name>SwiftHelper.Experimental</Name>
     </ProjectReference>
     <ProjectReference Include="..\SwiftHelper\SwiftHelper.csproj">
       <Project>{5fd3d1ac-99c9-4f5c-a4f3-d91ed9b32e96}</Project>

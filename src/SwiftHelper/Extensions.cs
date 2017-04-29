@@ -58,15 +58,79 @@ namespace SwiftHelper
         //    return new PartitionResult<TSource>(null, null);
         //}
 
-        //public static IEnumerable<TSource> MinBy<TSource, TKey>(this ICollection<TSource> source, Func<TSource, TKey> keySelector)
-        //{
-        //    return null;
-        //}
+        public static ICollection<TSource> MinBy<TSource, TSelector>(this ICollection<TSource> source, Func<TSource, TSelector> selector)
+        {
+            IComparer<TSelector> comparer = Comparer<TSelector>.Default;
 
-        //public static IEnumerable<TSource> MaxBy<TSource, TKey>(this ICollection<TSource> source, Func<TSource, TKey> keySelector)
-        //{
-        //    return null;
-        //}
+            using (var enumerator = source.GetEnumerator())
+            {
+                if (!enumerator.MoveNext())
+                {
+                    return new TSource[0]; // empty collection
+                }
+
+                var minElements = new List<TSource> {enumerator.Current};
+                var minSelectorValue = selector(enumerator.Current);
+
+                while (enumerator.MoveNext())
+                {
+                    var element = enumerator.Current;
+                    var selectorValue = selector(element);
+
+                    var compareResult = comparer.Compare(selectorValue, minSelectorValue);
+
+                    if (compareResult < 0)
+                    {
+                        minSelectorValue = selectorValue;
+                        minElements.Clear();
+                        minElements.Add(element);
+                    }
+                    else if (compareResult == 0)
+                    {
+                        minElements.Add(element);
+                    }
+                }
+
+                return minElements;
+            }
+        }
+
+        public static ICollection<TSource> MaxBy<TSource, TSelector>(this ICollection<TSource> source, Func<TSource, TSelector> selector)
+        {
+            IComparer<TSelector> comparer = Comparer<TSelector>.Default;
+
+            using (var enumerator = source.GetEnumerator())
+            {
+                if (!enumerator.MoveNext())
+                {
+                    return new TSource[0]; // empty collection
+                }
+
+                var maxElements = new List<TSource> {enumerator.Current};
+                var maxSelectorValue = selector(enumerator.Current);
+
+                while (enumerator.MoveNext())
+                {
+                    var element = enumerator.Current;
+                    var selectorValue = selector(element);
+
+                    var compareResult = comparer.Compare(selectorValue, maxSelectorValue);
+
+                    if (compareResult > 0)
+                    {
+                        maxSelectorValue = selectorValue;
+                        maxElements.Clear();
+                        maxElements.Add(element);
+                    }
+                    else if (compareResult == 0)
+                    {
+                        maxElements.Add(element);
+                    }
+                }
+
+                return maxElements;
+            }
+        }
 
         public static void ForEach<TSource>(this ICollection<TSource> source, Action<TSource> action)
         {

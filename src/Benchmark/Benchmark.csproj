@@ -123,6 +123,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MinByMaxBy\MinByMaxByBenchmarksBase.cs" />
+    <Compile Include="MinByMaxBy\MinByMaxByBenchmarksCustom.cs" />
+    <Compile Include="MinByMaxBy\MinByMaxByBenchmarksExtended.cs" />
+    <Compile Include="MinByMaxBy\MinByMaxByBenchmarksBasic.cs" />
     <Compile Include="DistinctTests.cs" />
     <Compile Include="ExtensionTests.cs" />
     <Compile Include="Program.cs" />
