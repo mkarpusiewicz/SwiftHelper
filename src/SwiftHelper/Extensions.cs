@@ -60,6 +60,15 @@ namespace SwiftHelper
 
         public static ICollection<TSource> MinBy<TSource, TSelector>(this ICollection<TSource> source, Func<TSource, TSelector> selector)
         {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+            if (selector == null)
+            {
+                throw new ArgumentNullException(nameof(selector));
+            }
+
             IComparer<TSelector> comparer = Comparer<TSelector>.Default;
 
             using (var enumerator = source.GetEnumerator())
@@ -97,6 +106,15 @@ namespace SwiftHelper
 
         public static ICollection<TSource> MaxBy<TSource, TSelector>(this ICollection<TSource> source, Func<TSource, TSelector> selector)
         {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+            if (selector == null)
+            {
+                throw new ArgumentNullException(nameof(selector));
+            }
+
             IComparer<TSelector> comparer = Comparer<TSelector>.Default;
 
             using (var enumerator = source.GetEnumerator())
