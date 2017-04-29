@@ -4,9 +4,9 @@ using BenchmarkDotNet.Attributes;
 using Bogus;
 using SimpleSamples;
 
-namespace Benchmark.MinByMaxBy
+namespace Benchmark.Abstracts
 {
-    public abstract class MinByMaxByBenchmarksBase
+    public abstract class BenchmarksBase
     {
         public abstract int DataSize { get; set; }
 
