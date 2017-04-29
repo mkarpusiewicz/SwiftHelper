@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="CompareTests.cs" />
     <Compile Include="DistinctTests.cs" />
+    <Compile Include="Experimental\PartitionExperimentalTests.cs" />
     <Compile Include="Extensions\ActionWrapper.cs" />
     <Compile Include="Experimental\MinByMaxByExperimentalTests.cs" />
     <Compile Include="GeneratorTests.cs" />

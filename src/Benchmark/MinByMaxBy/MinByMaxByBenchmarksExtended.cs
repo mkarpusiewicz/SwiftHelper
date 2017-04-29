@@ -1,11 +1,12 @@
 ﻿using System.Linq;
+using Benchmark.Abstracts;
 using BenchmarkDotNet.Attributes;
 using SimpleSamples;
 using SwiftHelper.Experimental;
 
 namespace Benchmark.MinByMaxBy
 {
-    public class MinByMaxByBenchmarksExtended : MinByMaxByBenchmarksBase
+    public class MinByMaxByBenchmarksExtended : BenchmarksBase
     {
         [Params(100, 10000)]
         public override int DataSize { get; set; }
