@@ -26,6 +26,8 @@ namespace SwiftHelper.Experimental
                 {
                     return new TSource[0]; // empty collection
                 }
+
+                minElements[elementsCount++] = enumerator.Current;
                 var minSelectorValue = selector(enumerator.Current);
 
                 while (enumerator.MoveNext())
@@ -65,6 +67,8 @@ namespace SwiftHelper.Experimental
                 {
                     return new TSource[0]; // empty collection
                 }
+
+                minElements[elementsCount++] = enumerator.Current;
                 var minSelectorValue = selector(enumerator.Current);
 
                 while (enumerator.MoveNext())
@@ -99,14 +103,14 @@ namespace SwiftHelper.Experimental
         {
             IComparer<TSelector> comparer = Comparer<TSelector>.Default;
 
-            var minElements = new List<TSource>();
-
             using (var enumerator = source.GetEnumerator())
             {
                 if (!enumerator.MoveNext())
                 {
                     return new TSource[0]; // empty collection
                 }
+
+                var minElements = new List<TSource> { enumerator.Current };
                 var minSelectorValue = selector(enumerator.Current);
 
                 while (enumerator.MoveNext())
@@ -127,9 +131,9 @@ namespace SwiftHelper.Experimental
                         minElements.Add(element);
                     }
                 }
-            }
 
-            return minElements;
+                return minElements;
+            }
         }
     }
 }
