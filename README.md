@@ -43,7 +43,12 @@ public void DoSomething(IEnumerable<string> source)
 #### void ICollection\<TSource\>.ForEach(Action\<TSource\> action)
 Execute an action for every element in a collection.
 ```csharp
-//todo: sample code
+public void DoSomething(ICollection<string> source)
+{
+   source.ForEach(item => item.DoSomethingWithMe());
+   ...
+   //some logic
+}
 ```
 
 ### AllUnique / AllUniqueBy
@@ -119,14 +124,17 @@ public void SomeMethod()
 ### Compare
 #### SimpleCompareResult\<TElement\> Compare(ICollection\<TElement\> oldEnumerable, ICollection\<TElement\> newEnumerable)
 Compare two lists using default comparer and return result with added and removed elements collection.
-```csharp.
-public class SimpleCompareResult<T>
+```csharp
+public void CompareIntegerLists()
 {
-   public IReadOnlyCollection<T> Added { get; }
-   public IReadOnlyCollection<T> Removed { get; }
-}
+    var oldList = new List<int> { 1, 2, 3 };
+    var newList = new List<int> { 1, 2, 4, 5 };
 
-//todo: sample code
+    var result = SwiftHelper.Extensions.Compare(oldList, newList);
+
+    // result.Added -> { 4, 5 }
+    // result.Removed -> { 3 }
+}
 ```
 
 ### Partition

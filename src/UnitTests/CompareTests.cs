@@ -26,5 +26,21 @@ namespace UnitTests
         public void CompareUsersTest()
         {
         }
+
+        [Fact]
+        public void CompareIntegersTest()
+        {
+            var oldList = new List<int> { 1, 2, 3 };
+            var newList = new List<int> { 1, 2, 4, 5 };
+
+            var result = SwiftHelper.Extensions.Compare(oldList, newList);
+
+            Assert.Equal(2, result.Added.Count);
+            Assert.Contains(4, result.Added);
+            Assert.Contains(5, result.Added);
+
+            Assert.Equal(1, result.Removed.Count);
+            Assert.Contains(3, result.Removed);
+        }
     }
 }
