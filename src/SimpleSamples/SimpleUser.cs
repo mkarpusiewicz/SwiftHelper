@@ -60,7 +60,7 @@ namespace SimpleSamples
                 hashCode = (hashCode * 397) ^ Age;
                 hashCode = (hashCode * 397) ^ Joined.GetHashCode();
                 hashCode = (hashCode * 397) ^ Score.GetHashCode();
-                hashCode = (hashCode * 397) ^ Rating.GetHashCode();
+                hashCode = (hashCode * 397) ^ Rating?.GetHashCode() ?? 0;
                 return hashCode;
             }
         }

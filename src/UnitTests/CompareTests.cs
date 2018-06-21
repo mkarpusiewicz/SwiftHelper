@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SimpleSamples;
 using Xunit;
 
@@ -25,6 +26,29 @@ namespace UnitTests
         [Fact]
         public void CompareUsersTest()
         {
+            var result = SwiftHelper.Extensions.Compare(OldUsers, NewUsers);
+
+            Assert.Equal(1, result.Added.Count);
+            Assert.Contains(NewUsers.Single(u => u.Name == "Kate"), result.Added);
+
+            Assert.Equal(1, result.Removed.Count);
+            Assert.Contains(OldUsers.Single(u => u.Name == "Frank"), result.Removed);
+        }
+
+        [Fact]
+        public void CompareIntegersTest()
+        {
+            var oldList = new List<int> { 1, 2, 3 };
+            var newList = new List<int> { 1, 2, 4, 5 };
+
+            var result = SwiftHelper.Extensions.Compare(oldList, newList);
+
+            Assert.Equal(2, result.Added.Count);
+            Assert.Contains(4, result.Added);
+            Assert.Contains(5, result.Added);
+
+            Assert.Equal(1, result.Removed.Count);
+            Assert.Contains(3, result.Removed);
         }
     }
 }
